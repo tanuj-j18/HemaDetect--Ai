@@ -1,0 +1,145 @@
+<svg width="1000" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="900" height="900" fill="#F5F7FA"/>
+
+  <!-- Title -->
+  <text x="450" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2C3E50" text-anchor="middle">Melanoma vs. Nevus Model Architecture</text>
+  <text x="450" y="50" font-family="Arial, sans-serif" font-size="14" font-style="italic" fill="#7F8C8D" text-anchor="middle">EfficientNetV2B0 + Metadata Inputs</text>
+
+  <!-- Image Input Branch -->
+  <rect x="50" y="100" width="150" height="50" rx="10" fill="#3498DB" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="125" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Image Input</text>
+  <text x="125" y="140" font-family="Arial, sans-serif" font-size="10" fill="#E0E0E0" text-anchor="middle">(224, 224, 3)</text>
+
+  <rect x="50" y="180" width="150" height="60" rx="10" fill="#AED6F1" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="125" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">EfficientNetV2B0</text>
+  <text x="125" y="225" font-family="Arial, sans-serif" font-size="10" fill="#2C3E50" text-anchor="middle">Pretrained, Frozen</text>
+
+  <rect x="50" y="270" width="150" height="50" rx="10" fill="#AED6F1" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="125" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Dense (512, Swish)</text>
+
+  <rect x="50" y="350" width="150" height="50" rx="10" fill="#AED6F1" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="125" y="375" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Dropout (0.5)</text>
+
+  <!-- Metadata Inputs -->
+  <!-- Gender Input -->
+  <rect x="300" y="100" width="150" height="50" rx="10" fill="#3498DB" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="375" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Gender Input</text>
+  <text x="375" y="140" font-family="Arial, sans-serif" font-size="10" fill="#E0E0E0" text-anchor="middle">(1,)</text>
+
+  <rect x="290" y="180" width="169" height="50" rx="10" fill="#A9DFBF" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="375" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Embedding (num_Gender, 2)</text>
+
+  <rect x="300" y="260" width="150" height="50" rx="10" fill="#A9DFBF" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="375" y="285" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Flatten</text>
+
+  <!-- Anatom Input -->
+  <!-- Anatom Input -->
+<rect x="500" y="100" width="150" height="50" rx="10" fill="#3498DB" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+<text x="575" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Anatom Input</text>
+<text x="575" y="140" font-family="Arial, sans-serif" font-size="10" fill="#E0E0E0" text-anchor="middle">(1,)</text>
+
+<rect x="485" y="180" width="200" height="50" rx="10" fill="#A9DFBF" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+<text x="585" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Embedding (num_anatom, 4)</text>
+
+<rect x="500" y="260" width="150" height="50" rx="10" fill="#A9DFBF" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+<text x="575" y="285" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Flatten</text>
+  <!-- Age Input -->
+  <rect x="700" y="100" width="150" height="50" rx="10" fill="#3498DB" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="775" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Age Input</text>
+  <text x="775" y="140" font-family="Arial, sans-serif" font-size="10" fill="#E0E0E0" text-anchor="middle">(1,)</text>
+
+  <rect x="700" y="180" width="150" height="50" rx="10" fill="#A9DFBF" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="775" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Dense (8, ReLU)</text>
+
+  <!-- Metadata Concatenation -->
+  <rect x="400" y="360" width="350" height="50" rx="10" fill="#F1C40F" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="575" y="385" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Concatenate (Gender, Anatom, Age)</text>
+
+  <rect x="400" y="450" width="350" height="50" rx="10" fill="#F1C40F" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="575" y="475" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Dense (32, Swish)</text>
+
+  <rect x="400" y="540" width="350" height="50" rx="10" fill="#F1C40F" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="575" y="565" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50" text-anchor="middle">Dropout (0.3)</text>
+
+  <!-- Combined Branch -->
+  <rect x="250" y="640" width="350" height="50" rx="10" fill="#E74C3C" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="425" y="665" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Concatenate (Image + Metadata)</text>
+
+  <rect x="250" y="730" width="350" height="50" rx="10" fill="#E74C3C" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="425" y="755" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BatchNormalization</text>
+
+  <rect x="250" y="820" width="350" height="50" rx="10" fill="#E74C3C" stroke="#2C3E50" stroke-width="1" filter="url(#shadow)"/>
+  <text x="425" y="845" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Dense (2, Sigmoid)</text>
+
+  <!-- Arrows -->
+  <!-- Image Branch -->
+  <line x1="125" y1="150" x2="125" y2="180" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="145" y="165" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Input</text>
+  <line x1="125" y1="240" x2="125" y2="270" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="145" y="255" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Feature Extraction</text>
+  <line x1="125" y1="320" x2="125" y2="350" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="145" y="335" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Regularization</text>
+  <line x1="125" y1="400" x2="425" y2="640" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="220" y="520" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Combine</text>
+
+  <!-- Gender Branch -->
+  <line x1="375" y1="150" x2="375" y2="180" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="395" y="165" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Input</text>
+  <line x1="375" y1="230" x2="375" y2="260" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="395" y="245" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Embed</text>
+  <line x1="375" y1="310" x2="575" y2="360" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="465" y="335" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Concat</text>
+
+  <!-- Anatom Branch -->
+  <line x1="575" y1="150" x2="575" y2="180" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="595" y="165" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Input</text>
+  <line x1="575" y1="230" x2="575" y2="260" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="595" y="245" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Embed</text>
+  <line x1="575" y1="310" x2="575" y2="360" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="595" y="335" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Concat</text>
+
+  <!-- Age Branch -->
+  <line x1="775" y1="150" x2="775" y2="180" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="795" y="165" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Input</text>
+  <line x1="775" y1="230" x2="575" y2="360" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="675" y="295" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Concat</text>
+
+  <!-- Metadata Branch -->
+  <line x1="575" y1="410" x2="575" y2="450" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="595" y="430" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Dense</text>
+  <line x1="575" y1="500" x2="575" y2="540" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="595" y="520" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Regularization</text>
+  <line x1="575" y1="590" x2="425" y2="640" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="500" y="615" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Combine</text>
+
+  <!-- Combined Branch -->
+  <line x1="425" y1="690" x2="425" y2="730" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="445" y="710" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Normalize</text>
+  <line x1="425" y1="780" x2="425" y2="820" stroke="#7F8C8D" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="445" y="800" font-family="Arial, sans-serif" font-size="10" fill="#7F8C8D">Output</text>
+
+  <!-- Arrowhead Definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7F8C8D"/>
+    </marker>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  
+
+  
+
+    try to draw this in horizontal direction 
+  </svg>
