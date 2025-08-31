@@ -8,6 +8,8 @@ matplotlib
 opencv-python-headless
 scikit-learn
 scikit-image
+gunicorn
+
 # # 1️⃣ Install dependencies
 # pip install -r requirements.txt
 
